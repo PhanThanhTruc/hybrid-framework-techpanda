@@ -1,6 +1,8 @@
 package pageObjects.admin;
 
-public class HompageObject {
+import commons.BasePage;
+
+public class HompageObject extends BasePage {
 	//hàm để tương tác giữa các element
 
 }
