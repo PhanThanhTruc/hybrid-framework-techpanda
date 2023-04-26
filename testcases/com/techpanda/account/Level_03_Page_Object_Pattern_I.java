@@ -103,7 +103,7 @@ public class Level_03_Page_Object_Pattern_I {
 
 		loginPage = new LoginPageObject(driver);
 		loginPage.inputsenKeyToEmailTextBox("automationfc+123.vn@gmail.com");
-		loginPage.inputToPassWordTextbox("123123");
+		loginPage.inputToPassWordTextbox("123123"); 
 		loginPage.clickToLoginButton();
 		
 		myDashBoardPage= new MyDashBoardPageObject(driver);
