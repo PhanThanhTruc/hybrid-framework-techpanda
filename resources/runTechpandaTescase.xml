@@ -2,7 +2,7 @@
 <suite parallel="false" name="Tech Panda">
 	<test name="Run on Chrome browser">
 		<classes>
-			<class name="com.techpanda.account.Level_01_Dont_Repeat_Yourself" />
+			<class name="com.techpanda.account.Level_03_Page_Object_Pattern_I" />
 		</classes>
 	</test>
 </suite> 

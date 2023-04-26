@@ -15,8 +15,11 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage {
+	public static BasePage getBasePageInstance() {
+		return new BasePage();
+	}
 	public void openPageUrl(WebDriver driver, String pageUrl) {
-
+		driver.get(pageUrl);
 	}
 
 	public String getPageUrl(WebDriver driver) {
@@ -164,9 +167,7 @@ public class BasePage {
 				tempElement.click();
 				sleepInSecond(1);
 				break;
-
 			}
-
 		}
 	}
 
@@ -187,14 +188,16 @@ public class BasePage {
 	}
 
 	public void checkToCheckBoxOrRadio(WebDriver driver, String locator) {
-		if (!isElementSlected(driver, locator)) {
-			clickToElement(driver, locator);
+		WebElement element= getWebElement(driver, locator);
+		if (!element.isSelected()) {
+			element.click();;
 		}
 	}
 
 	public void uncheckToCheckbox(WebDriver driver, String locator) {
-		if (isElementSlected(driver, locator)) {
-			clickToElement(driver, locator);
+		WebElement element= getWebElement(driver, locator);
+		if (element.isSelected()) {
+			element.click();
 		}
 	}
 

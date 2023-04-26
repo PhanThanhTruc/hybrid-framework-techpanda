@@ -1,5 +1,10 @@
 package pageObjects.admin;
 
-public class LoginPageObject {
+import org.openqa.selenium.WebDriver;
+
+import commons.BasePage;
+import pageUIs.user.LoginPageUI;
+
+public class LoginPageObject extends BasePage {
 
 }

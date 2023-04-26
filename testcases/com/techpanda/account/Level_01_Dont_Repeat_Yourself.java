@@ -36,7 +36,7 @@ public class Level_01_Dont_Repeat_Yourself {
 		driver.findElement(By.id("email")).sendKeys("");
 		driver.findElement(By.id("pass")).sendKeys("");
 		driver.findElement(By.id("send2")).click();
-
+// dùng assertEquals mà ko dùng Assert.assertEqual là  vì phần import mình import có static phía trước
 		assertEquals(driver.findElement(By.id("advice-required-entry-email")).getText(), "This is a required field.");
 		assertEquals(driver.findElement(By.id("advice-required-entry-pass")).getText(), "This is a required field.");
 	}
@@ -47,8 +47,7 @@ public class Level_01_Dont_Repeat_Yourself {
 		driver.findElement(By.id("pass")).sendKeys("123456");
 		driver.findElement(By.id("send2")).click();
 
-		assertEquals(driver.findElement(By.id("advice-validate-email-email")).getText(),
-				"Please enter a valid email address. For example johndoe@domain.com.");
+		assertEquals(driver.findElement(By.id("advice-validate-email-email")).getText(), "Please enter a valid email address. For example johndoe@domain.com.");
 	}
 
 	@Test(description = "Email not exist in application")
@@ -57,8 +56,7 @@ public class Level_01_Dont_Repeat_Yourself {
 		driver.findElement(By.id("pass")).sendKeys("123456");
 		driver.findElement(By.id("send2")).click();
 
-		assertEquals(driver.findElement(By.xpath("//li[@class='error-msg']//span")).getText(),
-				"Invalid login or password.");
+		assertEquals(driver.findElement(By.xpath("//li[@class='error-msg']//span")).getText(), "Invalid login or password.");
 	}
 
 	@Test(description = "Password less than 6 characters")
@@ -67,8 +65,7 @@ public class Level_01_Dont_Repeat_Yourself {
 		driver.findElement(By.id("pass")).sendKeys("123");
 		driver.findElement(By.id("send2")).click();
 
-		assertEquals(driver.findElement(By.id("advice-validate-password-pass")).getText(),
-				"Please enter 6 or more characters without leading or trailing spaces.");
+		assertEquals(driver.findElement(By.id("advice-validate-password-pass")).getText(), "Please enter 6 or more characters without leading or trailing spaces.");
 	}
 
 	@Test
@@ -77,8 +74,7 @@ public class Level_01_Dont_Repeat_Yourself {
 		driver.findElement(By.id("pass")).sendKeys(randomNumber() + "");
 		driver.findElement(By.id("send2")).click();
 
-		assertEquals(driver.findElement(By.xpath("//li[@class='error-msg']//span")).getText(),
-				"Invalid login or password.");
+		assertEquals(driver.findElement(By.xpath("//li[@class='error-msg']//span")).getText(), "Invalid login or password.");
 	}
 
 	@Test
@@ -87,12 +83,9 @@ public class Level_01_Dont_Repeat_Yourself {
 		driver.findElement(By.id("pass")).sendKeys("123123");
 		driver.findElement(By.id("send2")).click();
 
-		assertTrue(driver.findElement(By.xpath(
-				"//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Automation FC')]"))
-				.isDisplayed());
-		assertTrue(driver.findElement(By.xpath(
-				"//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'automationfc.vn@gmail.com')]"))
-				.isDisplayed());
+		assertTrue(driver.findElement(By.xpath("//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'Automation FC')]")).isDisplayed());
+		assertTrue(
+				driver.findElement(By.xpath("//h3[text()='Contact Information']/parent::div/following-sibling::div[@class='box-content']/p[contains(.,'automationfc.vn@gmail.com')]")).isDisplayed());
 	}
 
 	@AfterClass
