@@ -46,6 +46,7 @@ public class Level_04_Multiple_Browser extends BaseTest {
 
 		assertEquals(loginPage.getEmailAddressEmptyErrorMessage(), "This is a required field.");
 		assertEquals(loginPage.passwordEmptyErrorMessage(), "This is a required field.");
+		System.out.println("Success");
 	}
 
 	@Test
